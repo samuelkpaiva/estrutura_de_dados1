@@ -24,7 +24,7 @@ struct livros livro;
 
 int main(){
     do {
-        cout << "###### SISTEMA LEGAL DE BIBLIOTECA ######" << endl;
+        cout << "APP BIBLIOTECA V27.8" << endl;
         cout << "1 - Cadastro" << endl;
         cout << "2 - Listagem geral de livros" << endl;
         cout << "3 - Consulta de livros" << endl;
@@ -66,9 +66,9 @@ int main(){
                     }
 
                     if (fwrite(&livro, sizeof(struct livros), 1, arquivo) == 1){
-                        cout << "Livro cadastrado com sucesso!";
+                        cout << "Livro cadastrado";
                     } else {
-                        cout << "Erro ao cadastrar o livro!";
+                        cout << "Erro ao cadastrar o livro";
                     }
                     fclose(arquivo);
 
@@ -97,7 +97,7 @@ int main(){
                     cin.ignore();
                     cin.get();
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
@@ -105,7 +105,7 @@ int main(){
             case 3:
                 arquivo = fopen("dados.dat", "rb");
                 if (arquivo != NULL){
-                    cout << "Digite o código do livro que deseja pesquisar: ";
+                    cout << "Digite o código do livro: ";
                     cin >> cod;
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     
@@ -125,7 +125,7 @@ int main(){
                     fclose(arquivo);
 
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
@@ -150,7 +150,7 @@ int main(){
                     cin.ignore();
                     cin.get();
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
@@ -158,7 +158,7 @@ int main(){
             case 5:
                 arquivo = fopen("dados.dat", "rb+");
                 if (arquivo != NULL){
-                    cout << "Digite o código do livro que deseja emprestar: ";
+                    cout << "Digite o código do livro: ";
                     cin >> cod;
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     
@@ -184,7 +184,7 @@ int main(){
                     fclose(arquivo);
 
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
@@ -192,7 +192,7 @@ int main(){
             case 6:
                 arquivo = fopen("dados.dat", "rb+");
                 if (arquivo != NULL){
-                    cout << "Digite o código do livro que deseja devolver: ";
+                    cout << "Digite o código do livro: ";
                     cin >> cod;
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     
@@ -212,7 +212,7 @@ int main(){
                     fclose(arquivo);
 
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
@@ -221,7 +221,7 @@ int main(){
                 arquivo = fopen("dados.dat", "rb+");
                 if (arquivo != NULL){
 
-                    cout << "Digite o código do livro que deseja alterar: ";
+                    cout << "Digite o código do livro: ";
                     cin >> cod;
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     
@@ -247,9 +247,9 @@ int main(){
 
                             fseek(arquivo, sizeof(struct livros) * pos, SEEK_SET);
                             if (fwrite(&livro, sizeof(struct livros), 1, arquivo) == 1){
-                                cout << "Livro alterado com sucesso!";
+                                cout << "Livro alterado";
                             } else {
-                                cout << "Erro ao alterar o livro!";
+                                cout << "Erro ao alterar o livro";
                             } 
                             cin.ignore();
                             cin.get();
@@ -259,13 +259,13 @@ int main(){
                     fclose(arquivo);
 
                 } else {
-                    cout << "Erro ao abrir o banco de dados!";
+                    cout << "Erro ao abrir o banco de dados";
                     cin.ignore();
                     cin.get();
                 }
                 break;
             case 8:
-                cout << "Digite o código do livro que deseja excluir: ";
+                cout << "Digite o código do livro: ";
                 cin >> cod;
                 arquivo = fopen("dados.dat", "rb");
                 arquivoAux = fopen("dados.aux", "wb");
@@ -284,10 +284,10 @@ int main(){
                 rename("dados.aux", "dados.dat");
                 break;
             case 9:
-                cout << "Obrigado por usar nossa solução!";
+                cout << "Até a próxima";
                 break;
             default:
-                cout << "Informe uma opção válida!";
+                cout << "Informe uma opção válida";
                 break;
         }
         cout << "\e[2J" << "\e[0;0H";
